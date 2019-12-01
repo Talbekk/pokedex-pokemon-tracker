@@ -2,7 +2,9 @@
   <div>
     <p>Pokemon:</p>
     <pokemons-list :pokemons='pokemons'></pokemons-list>
-    <pokemon-info :pokemon='this.selectedPokemon'></pokemon-info>
+    <div v-if='selectedPokemon'>
+    <pokemon-info :pokemon='selectedPokemon'></pokemon-info>
+    </div>
   </div>
 </template>
 
