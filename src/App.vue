@@ -6,6 +6,9 @@
 </template>
 
 <script>
+
+import PokemonsList from "./components/PokemonsList.vue";
+
 export default {
   name: "app",
   data() {
@@ -14,9 +17,9 @@ export default {
       selectedPokemon: null
     }
   },
-  // components: {
-  //   "pokemons-list": PokemonsList
-  // },
+  components: {
+    "pokemons-list": PokemonsList
+  },
   methods: {
     getPokemons: function () {
       fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
