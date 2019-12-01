@@ -1,28 +1,35 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="html">
+  <div>
+    <p>Pokemon:</p>
+    <pokemons-list :pokemons='pokemons'></pokemons-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: "app",
+  data() {
+    return {
+      pokemons: [],
+      selectedPokemon: null
+    }
+  },
+  // components: {
+  //   "pokemons-list": PokemonsList
+  // },
+  methods: {
+    getPokemons: function () {
+      fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
+      .then(res => res.json())
+      .then(data => this.pokemons = data)
+
+    }
+  },
+  mounted() {
+    this.getPokemons();
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>
