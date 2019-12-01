@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       pokemons: [],
-      selectedPokemon: null
+      selectedPokemon: []
     }
   },
   components: {
@@ -24,7 +24,7 @@ export default {
     getPokemons: function () {
       fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
       .then(res => res.json())
-      .then(data => this.pokemons = data)
+      .then(data => this.pokemons = data.results)
 
     }
   },
