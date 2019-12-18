@@ -1,8 +1,8 @@
 <template lang="html">
 <div id="pokemons-list" v-if='pokemons.length'>
-  <ul>
-  <pokemons-list-item v-for='(pokemon, index) in pokemons' :pokemon='pokemon' :key='index'></pokemons-list-item>
-  </ul>
+  <ol>
+  <pokemons-list-item v-for='(pokemon, index) in pokemons' :pokemon='pokemon' :caughtFilter="caughtFilter" :key='index'></pokemons-list-item>
+</ol>
 </div>
 </template>
 
@@ -10,7 +10,7 @@
 import PokemonsListItem from "./PokemonsListItem.vue"
 export default {
   name: "pokemons-list",
-  props: ["pokemons"],
+  props: ["pokemons", "caughtFilter"],
   components: {
     "pokemons-list-item": PokemonsListItem
   }
@@ -18,4 +18,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 </style>

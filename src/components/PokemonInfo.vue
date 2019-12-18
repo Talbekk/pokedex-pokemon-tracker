@@ -1,10 +1,12 @@
 <template lang="html">
 <div>
+<p>{{pokemon.id}}</p>
 <p>{{upperCase(pokemon.name)}}</p>
 <p>Type: {{upperCase(pokemonTypes(pokemon.types))}}</p>
 <p>Height: {{pokemon.height}}ft</p>
 <p>Weight: {{pokemon.weight}}lbs</p>
-<img :src="pokemon.sprites['front-default']"/>
+<img class="pokemon-icon" :src="pokemon.sprites.front_default"/>
+<!-- <img src="pokemon.sprites['front-default']"> -->
 
 </div>
 </template>
@@ -30,4 +32,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+img {
+  max-width: 10em;
+  max-height: 10em;
+  padding: 2em;
+}
 </style>
